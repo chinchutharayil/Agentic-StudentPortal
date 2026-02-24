@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using StudentPortal.Models;
 using StudentPortal.Services;
-using System.ComponentModel.DataAnnotations;
 
 namespace StudentPortal.Pages.Students
 {
