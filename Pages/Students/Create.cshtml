@@ -1,0 +1,46 @@
+@page
+@model StudentPortal.Pages.Students.CreateModel
+@{
+    ViewData["Title"] = "Add New Student";
+}
+
+<h1>Add New Student</h1>
+
+<form method="post">
+    <div>
+        <label>Name:</label><br />
+        <input type="text" asp-for="Student.Name" required />
+        <span asp-validation-for="Student.Name"></span>
+    </div>
+    <br />
+    
+    <div>
+        <label>Email:</label><br />
+        <input type="email" asp-for="Student.Email" required />
+        <span asp-validation-for="Student.Email"></span>
+    </div>
+    <br />
+    
+    <div>
+        <label>Age:</label><br />
+        <input type="number" asp-for="Student.Age" required min="1" max="150" />
+        <span asp-validation-for="Student.Age"></span>
+    </div>
+    <br />
+    
+    <div>
+        <label>Enrollment Date:</label><br />
+        <input type="date" asp-for="Student.EnrollmentDate" required />
+        <span asp-validation-for="Student.EnrollmentDate"></span>
+    </div>
+    <br />
+    
+    <div>
+        <button type="submit">Add Student</button>
+        <a asp-page="Index">Cancel</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
