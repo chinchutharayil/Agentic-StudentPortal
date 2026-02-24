@@ -1,0 +1,40 @@
+@page
+@model StudentPortal.Pages.Students.IndexModel
+@{
+    ViewData["Title"] = "Students List";
+}
+
+<h1>Students Portal</h1>
+
+<p>
+    <a asp-page="Create">Add New Student</a>
+</p>
+
+<table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Enrollment Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model.Students)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+                <td>@student.Email</td>
+                <td>@student.Age</td>
+                <td>@student.EnrollmentDate.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@student.Id">Edit</a> |
+                    <a asp-page="Delete" asp-route-id="@student.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
